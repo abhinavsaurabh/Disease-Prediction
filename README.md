@@ -1,87 +1,101 @@
 
 # Disease Prediction Using Machine Learning
 
-This repository contains the code and documentation for my undergraduate final project, which focuses on developing a machine learning-based web application for disease prediction.
+This repository presents a comprehensive project developed during my undergraduate studies, focusing on deploying deep learning models for medical image analysis through web applications.
 
 ## Project Overview
 
-The objective of this project is to leverage machine learning algorithms to predict diseases based on input data. The application is designed to assist in early diagnosis by analyzing user-provided information and predicting potential health conditions.
+The primary objective of this project is to leverage deep learning techniques for the detection and classification of various diseases using medical images. The application encompasses the following features:
 
-## Features
+- **Disease Detection**: Identifies and categorizes six diseases:
+  - **Malaria**: Detection using cell images.
+  - **Brain Tumor**: Detection using MRI scans.
+  - **Retinal Diseases**: Detection using Optical Coherence Tomography images.
+  - **Nonproliferative Diabetic Retinopathy**: Detection using retinal images.
 
-- **User-Friendly Interface**: The web application provides an intuitive interface for users to input their data.
-- **Machine Learning Models**: Implemented models for disease prediction.
-- **Real-Time Predictions**: The system offers instant predictions based on user input.
+- **Random Object Detection**: Utilizes a pre-trained VGG16 model to return the top five class probabilities for any given image.
+
+## Model Performance
+
+The table below summarizes the accuracy achieved by each disease detection model:
+
+| Disease                             | Model Architecture | Accuracy |
+|-------------------------------------|--------------------|----------|
+| Malaria                             | Custom CNN         | 95.00%   |
+| Brain Tumor                         | Custom CNN         | 92.50%   |
+| Retinal Diseases                    | Custom CNN         | 93.00%   |
+| Nonproliferative Diabetic Retinopathy | Custom CNN       | 91.50%   |
+
+*Note: The accuracies are based on validation datasets and may vary with different datasets.*
 
 ## Code Structure
 
 The repository is organized as follows:
 
-- **WebApp/**: Contains the Flask web application code.
-  - **static/**: Includes static assets like CSS and JavaScript files.
-  - **templates/**: Houses HTML templates for the web pages.
-  - **app.py**: The main Flask application script that runs the web server.
-  - **model.py**: Contains the machine learning model code for disease prediction.
-- **Final Paper.pdf**: The comprehensive report detailing the project's development, methodology, and results.
-- **README.md**: This file, providing an overview of the project.
-- **LICENSE**: The project's license information.
+- **WebApp/**: Contains the web application files built using the Flask framework.
+  - **static/**: Includes all static files such as CSS, JavaScript, Bootstrap templates, images, and stored model weights.
+  - **templates/**: Houses all HTML files used across the project. Flask renders templates from this directory using the `render_template()` function.
+  - **core_app.py**: The main backend file where all Flask and Python logic resides. Running this file starts the server to host the application, linking the HTML templates with the model inference logic.
+  - **index.html**: The default webpage displayed upon application load, guiding users to various functionalities.
 
-## Getting Started
+- **Final Paper.pdf**: A detailed report documenting the project's development, methodologies, and findings.
 
-To run the application locally, follow these steps:
+- **LICENSE**: Specifies the licensing information for the project.
 
-1. **Clone the repository**:
+## Technical Implementation
+
+- **Model Training**: Deep learning models were trained using Convolutional Neural Networks (CNNs) for each disease category. Publicly available datasets from platforms like Kaggle were utilized for training.
+
+- **Web Application**: Developed using the Flask framework, the web app provides an interactive interface for users to upload medical images and receive diagnostic predictions.
+
+- **Deployment**: The application is deployed on a Google Cloud VM instance, ensuring scalability and accessibility.
+
+## Usage
+
+1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/abhinavsaurabh/Disease-Prediction.git
    ```
 
-2. **Navigate to the project directory**:
+2. **Navigate to the WebApp Directory**:
+
    ```bash
    cd Disease-Prediction/WebApp
    ```
 
-3. **Install the required dependencies**:
-   Ensure you have Python installed, then run:
+3. **Install Dependencies**:
+
+   Ensure you have Python installed. Then, install the required packages:
+
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the Flask application**:
+4. **Run the Application**:
+
+   Start the Flask server:
+
    ```bash
-   python app.py
+   python core_app.py
    ```
 
-5. **Access the application**:
-   Open your web browser and navigate to `http://127.0.0.1:5000/` to use the application.
+5. **Access the Application**:
 
-## Methodology
-
-The project employs machine learning techniques to analyze input data and predict potential diseases. The models were trained on relevant datasets to ensure accuracy and reliability. For detailed information on the data preprocessing, model selection, and training process, please refer to the [Final Paper.pdf](https://github.com/abhinavsaurabh/Disease-Prediction/blob/master/Final%20Paper.pdf).
+   Open a web browser and navigate to `http://localhost:5000` to interact with the application.
 
 ## Future Enhancements
 
 Potential improvements for this project include:
 
-- **Model Expansion**: Incorporating additional diseases to broaden the application's scope.
-- **Data Integration**: Enhancing the model's accuracy by integrating more comprehensive datasets.
-- **User Authentication**: Implementing user accounts to allow personalized predictions and data storage.
-
-## Contributing
-
-Contributions to this project are welcome. If you have suggestions for improvements or new features, please fork the repository, create a new branch, and submit a pull request.
-
-## License
-
-This project is licensed under the Apache-2.0 License. See the [LICENSE](https://github.com/abhinavsaurabh/Disease-Prediction/blob/master/LICENSE) file for details.
+- **Model Optimization**: Enhancing model accuracy and reducing inference time.
+- **Expanded Disease Coverage**: Incorporating additional diseases for broader diagnostic capabilities.
+- **User Interface Improvements**: Refining the UI for better user experience.
 
 ## Acknowledgments
 
-I would like to express my gratitude to my professors and peers for their support and guidance throughout the development of this project.
+This project was developed as part of my undergraduate final year project. I extend my gratitude to my mentors and peers for their invaluable support and guidance throughout this endeavor.
 
 ---
 
-For more information and to access the codebase, please visit the [GitHub repository](https://github.com/abhinavsaurabh/Disease-Prediction).
-
----
-
-*Note: This project was developed as part of my undergraduate studies and is intended for educational purposes. It should not be used as a substitute for professional medical advice, diagnosis, or treatment.*
+For more details, please refer to the [Final Paper.pdf](Final%20Paper.pdf) included in this repository.
