@@ -97,5 +97,3 @@ Potential improvements for this project include:
 This project was developed as part of my undergraduate final year project. I extend my gratitude to my mentors and peers for their invaluable support and guidance throughout this endeavor.
 
 ---
-
-For more details, please refer to the [Final Paper.pdf](Final%20Paper.pdf) included in this repository.
